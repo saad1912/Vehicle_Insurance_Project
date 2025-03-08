@@ -172,3 +172,4 @@ cython_debug/
 
 
 notebook/mongoDB_demo.ipynb
+artifact/
