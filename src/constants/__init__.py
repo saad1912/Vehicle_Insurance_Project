@@ -34,3 +34,7 @@ DATA_INGESTION_INGESTED_DIR: str = "ingestion"
 DATA_INGESTION_TRAIN_TEST_SPLIT_RATIO: float = 0.25
 
 
+#Data Validation related Constants
+DATA_VALIDATION_DIR_NAME:str = "data_validation"
+DATA_VALIDATION_REPORT_FILE_NAME:str = "report.yaml"
+
