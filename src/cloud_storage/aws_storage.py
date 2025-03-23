@@ -195,7 +195,7 @@ class SimpleStorageService:
         except Exception as e:
             raise MyException(e,sys) from e
         
-    def get_df_from_csv(self, object_:object)-> DataFrame:
+    def get_df_from_object(self, object_:object)-> DataFrame:
         """
         Converts an S3 object to a DataFrame.
 
@@ -211,6 +211,7 @@ class SimpleStorageService:
             content = self.read_object(object_, make_readable=True)
             df = read_csv(content, na_values="na")
             logging.info("Exited the get_df_from_object method of SimpleStorageService class")
+            return df
         except Exception as e:
             raise MyException(e,sys) from e
     def read_csv(self, filename: str, bucket_name: str) -> DataFrame:

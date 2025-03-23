@@ -102,7 +102,7 @@ class ModelEvaluation:
         try: 
 
             test_df = pd.read_csv(self.data_ingestion_artifact.test_file_path)
-            x,y = test_df.drop(TARGET_COLUMN),test_df[TARGET_COLUMN]
+            x,y = test_df.drop(TARGET_COLUMN, axis=1),test_df[TARGET_COLUMN]
 
             x = self._map_gender_column(x)
             x = self._create_dummy_columns(x)
@@ -129,12 +129,12 @@ class ModelEvaluation:
 
             result = EvaluateModelResponse(
                 trained_model_f1_score=trained_model_f1_score,
-                best_model_f1_score=tmp_best_model_score
-                is_model_accepted=(trained_model_f1_score>tmp_best_model_score)
+                best_model_f1_score=tmp_best_model_score,
+                is_model_accepted=(trained_model_f1_score>tmp_best_model_score),
                 difference= trained_model_f1_score - tmp_best_model_score
             )
             logging.info(f"Result-> {result}")
-        
+            return result
         except Exception as e:
             raise MyException(e,sys) from e
         
@@ -148,9 +148,9 @@ class ModelEvaluation:
 
             model_evaluation_artifact = ModelEvaluationArtifact(
                 is_model_accepted=evaluate_model_response.is_model_accepted,
-                changed_accuracy=evaluate_model_response.difference
+                changed_accuracy=evaluate_model_response.difference,
                 s3_model_path=s3_model_path,
-                trained_model_path=self.model_trainer_artifct.trained_model_file_path
+                trained_model_path=self.model_trainer_artifact.trained_model_file_path
             )
             logging.info(f"Model evaluation artifact: {model_evaluation_artifact}")
             return model_evaluation_artifact

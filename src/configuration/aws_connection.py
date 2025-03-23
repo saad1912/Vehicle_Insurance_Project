@@ -17,12 +17,12 @@ class S3Client:
                 raise Exception(f"Environment variable {__access_key_id} not set")
             if __secret_access_key is None:
                 raise Exception(f"Environment Variable {__secret_access_key} not set")
-            S3Client.s3_resource = boto3.resource(
+            S3Client.s3_resource = boto3.resource('s3',
             aws_access_key_id = __access_key_id,
             aws_secret_access_key = __secret_access_key,
             region_name = region_name
             )
-            S3Client.s3_client = boto3.client(
+            S3Client.s3_client = boto3.client('s3',
             aws_access_key_id = __access_key_id,
             aws_secret_access_key = __secret_access_key,
             region_name = region_name
