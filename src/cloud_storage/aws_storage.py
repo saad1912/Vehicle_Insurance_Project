@@ -110,7 +110,7 @@ class SimpleStorageService:
         except Exception as e:
             raise MyException(e,sys) from e
     
-    def load_model(self, model_name:str, model_dir:str, bucket_name:str=None)->object:
+    def load_model(self, model_name:str, bucket_name:str, model_dir:str=None )->object:
         """
         Loads a serialized model from the specified S3 bucket.
 

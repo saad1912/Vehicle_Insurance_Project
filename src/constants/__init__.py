@@ -66,6 +66,10 @@ MODEL_BUCKET_NAME = "my-model-mlopsproj1912"
 MODEL_PUSHER_S3_KEY = "model-registry"
 
 
+#App related information
+
+APP_HOST = "0.0.0.0"
+APP_PORT = 5000
 
 
 
