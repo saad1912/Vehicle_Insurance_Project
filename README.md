@@ -4,6 +4,9 @@ Vehicle Insurance Project
 This repository demonstrates a full-stack machine learning pipeline—from data ingestion and preprocessing to model training, evaluation, and deployment—integrated with modern cloud services and CI/CD practices. The project leverages tools and services such as Python, Docker, MongoDB Atlas, AWS, and GitHub Actions to provide an end-to-end solution for vehicle insurance data processing and model management.
 
 
+![Project Diagram](diagram.png)
+
+
 
 Table of Contents
 -----------------
